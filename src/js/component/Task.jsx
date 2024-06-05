@@ -3,8 +3,6 @@ import React from "react"
 
 export default function Task({todo, onDeleteTodo,onFinishedTodo}){
 
-console.log(todo);
-  console.log("task component");
     return(
       <>
         <li className="list-group-item d-flex flex-row justify-content-between" key={todo.id}>

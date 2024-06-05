@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 
 export default function GetUser({setTodos,children,setCurrUser}){
-    console.log("get user component");
-
 
     const [userName,setUserName] = useState();
     const [userError,setUserError]= useState();
@@ -15,8 +13,8 @@ export default function GetUser({setTodos,children,setCurrUser}){
         try{
     const resp = await fetch(`https://playground.4geeks.com/todo/users/${userName}`);
     if(!resp.ok){
-        throw new Error("User does not exist")
-
+        throw new Error(`User ${userName} does not exist`)
+        
     }
     const data = await resp.json();
     setCurrUser(data.name);
@@ -26,6 +24,7 @@ export default function GetUser({setTodos,children,setCurrUser}){
     setUserName('');
 
 }catch(err){
+    setUserName('');
     setUserError(err.message);
 } 
 
@@ -39,7 +38,10 @@ export default function GetUser({setTodos,children,setCurrUser}){
 			<button onClick={handleGetUser} type="button" className="btn btn-secondary">Get User</button>
             </div>
             {
-            userError ? <p className="alert alert-danger text-center">{userError}</p> : <p></p>
+            userError ? <div className="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                    {userError}
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div> : <p></p>
         }
             {children}
         </div>

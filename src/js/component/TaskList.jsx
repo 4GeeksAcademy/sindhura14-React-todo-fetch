@@ -36,28 +36,32 @@ export default function TaskList({todos,setTodos,children,currUser}) {
 
 
     return (
-      <div class="userContainer">
-          <p className="text-center"><h2>{currUser}</h2></p>
-          {children}
-        {
-          <ul className="list">
-            {
-              todos ? todos.map((todo)=> {
-                return(
-                  <Task todo={todo} onDeleteTodo={handleDeleteTodo} onFinishedTodo={handleFinishedTodos} key={todo.id}></Task>
-                )
-              }) : ''
-            }      
-          </ul>                       
-        }
-        {/* show Delete all button only if the todos are available*/
-          todos && todos.length > 0 ? <DeleteAllTasks setTodos={setTodos}></DeleteAllTasks> : <li className="list-group-item"></li>
-        }
-        {/* show stats only if the todos are available*/
-          todos ?<Stats todos={todos}></Stats> : ""
-        }
+      
+        <div class="userContainer">
+        <p className="text-center"><h2>{currUser}</h2></p>
+        {children}
+      {
+        <ul className="list">
+          {
+            todos ? todos.map((todo)=> {
+              return(
+                <Task todo={todo} onDeleteTodo={handleDeleteTodo} onFinishedTodo={handleFinishedTodos} key={todo.id}></Task>
+              )
+            }) : ''
+          }      
+        </ul>                       
+      }
+      {/* show Delete all button only if the todos are available*/
+        todos && todos.length > 0 ? <DeleteAllTasks setTodos={setTodos}></DeleteAllTasks> : <li className="list-group-item"></li>
+      }
+      {/* show stats only if the todos are available*/
+        todos ? <Stats todos={todos}></Stats> : ""
+      }
+ 
+    </div>
+      
+
    
-      </div>
    
     )
 }

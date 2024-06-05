@@ -12,7 +12,10 @@ const Home = () => {
 
 	const [todos,setTodos] = useState();
 	const [currUser,setCurrUser] = useState();
-	
+	const [closeTaskList,setCloseTaskList] = useState();
+	console.log("todos",todos);
+	console.log("in home");
+	console.log("currUser",currUser);
 	return (
 		<>
 		<div className="d-flex flex-row justify-content-around container">
@@ -22,12 +25,12 @@ const Home = () => {
 		
 		</div>
 		{
-			todos? 	<div className="d-flex flex-column justify-content-around container container-task">
+			 currUser !== undefined ? 	<div className="d-flex flex-column justify-content-around container container-task">
 			<TaskList setTodos={setTodos}  currUser={currUser} todos={todos}>
 				<AddTask setTodos={setTodos}></AddTask>
 			</TaskList> 
 			</div>  : ""
-		}
+}
 	
 		</>
 

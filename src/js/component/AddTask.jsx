@@ -6,8 +6,6 @@ export default function AddTask({setTodos}){
     const [newTodo,setNewTodo] = useState();
 
     async function handleAddTasks(e){
-        console.log("inside add task")
-
         e.preventDefault();
 
         const currentUser = localStorage.getItem("user");
@@ -23,7 +21,8 @@ export default function AddTask({setTodos}){
           if(resp.ok)
             {
                 const newAddedTodo = await resp.json();
-                setTodos(todos => [...todos,newAddedTodo]);                                
+                setTodos(todos => [...todos,newAddedTodo]);   
+                setNewTodo("");                             
             }else{
                 const error = await resp.json();
             }

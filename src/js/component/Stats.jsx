@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Stats({todos}){
-   console.log("inside stats",todos);
    let numTasks = todos ? todos.length :'';
 
    return(

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 export default function AddUser(){
 
-    console.log('add user component');
     const [user,setUser] = useState();
     const [error,setError]= useState();
+    const [message,setMessage]=useState();
 
 
     const  handleAddUser= async(e) =>{
@@ -14,6 +14,8 @@ export default function AddUser(){
          });
          if(resp.ok){
              const data = await resp.json();
+             const successMessage = "User " + user + " added!";
+             setMessage(successMessage);
              console.log(data);
              setError('');
          }else {
@@ -31,9 +33,17 @@ export default function AddUser(){
         <button type="button" className="btn btn-secondary" onClick={handleAddUser}>Add User</button>
         </div>
         {
-            error ? <p className="alert alert-danger text-center">{error}</p> : <p></p>
+            error ? <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            {error}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>  : <p></p>
         }
-        
+        {
+            message ? <div className="alert alert-success alert-dismissible fade show text-center" role="alert">
+            {message}
+    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>  : <p></p>
+        }
   
     </div>
  )

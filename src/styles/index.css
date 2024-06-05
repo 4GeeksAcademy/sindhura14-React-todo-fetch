@@ -41,7 +41,7 @@ input[type="text"] {
     width: 18rem;
 }
 
-.alert-danger,.alert-dark {
+.alert-danger,.alert-dark,.alert-success{
         padding: 0.5rem;
         margin: auto;
         margin-top: 1rem;
@@ -70,4 +70,8 @@ input[type="text"] {
 
 .newTask {
     margin-left: 14rem;
+}
+
+.alert-dismissible .btn-close {
+    top:-6px;
 }
