@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export default function AddUser(){
+
+    console.log('add user component');
     const [user,setUser] = useState();
     const [error,setError]= useState();
 
@@ -22,10 +24,17 @@ export default function AddUser(){
  }
 
  return (
-    <div>
-        <input value={user} onChange={(e) => setUser(e.target.value)} placeholder="user..."></input>
-        <button onClick={handleAddUser}>Add User</button>
-        <p>{error}</p>
+    <div className="card">
+        <h5 className="card-header">Add a new user</h5>
+        <div className="input-group">
+        <input value={user} onChange={(e) => setUser(e.target.value)} placeholder="enter name here..." type="text"></input>
+        <button type="button" className="btn btn-secondary" onClick={handleAddUser}>Add User</button>
+        </div>
+        {
+            error ? <p className="alert alert-danger text-center">{error}</p> : <p></p>
+        }
+        
+  
     </div>
  )
 

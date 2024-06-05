@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function AddTask({setTodos}){
+  console.log("add task component");
 
     const [newTodo,setNewTodo] = useState();
 
@@ -29,9 +30,14 @@ export default function AddTask({setTodos}){
     }
 
     return (
-        <form>
-        <input value={newTodo} placeholder="add a task" onChange={(e)=> setNewTodo(e.target.value)}></input>
-        <button onClick={handleAddTasks}>Add task</button>
-      </form>
+      <div className="newTask">
+        <div className="input-group">
+        <input value={newTodo} placeholder="add a task" type="text" onChange={(e)=> setNewTodo(e.target.value)}></input>
+        <button onClick={handleAddTasks} type="button" className="btn btn-secondary">Add a new task</button>
+        </div>
+
+      
+      </div>
+
     )
 }

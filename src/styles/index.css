@@ -10,3 +10,64 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.container {
+    padding: 1rem;
+    border: 1px solid lightgrey;
+    width: 57rem;
+    border-radius: 1rem;
+    margin-top:8rem;
+
+}
+
+.container-task {
+    margin-top: 5rem;
+}
+.card-header{
+    background-color:908E95;
+}
+.input-group{
+    padding: 1.2rem;
+}
+.card{
+    width:27rem;
+}
+.userContainer {
+    border: 1px solid lightgrey;
+    border-radius: 0.2rem;
+}
+input[type="text"] {
+    border-radius: 0.4rem 0 0 0.4rem;
+    padding: 0.4rem;
+    width: 18rem;
+}
+
+.alert-danger,.alert-dark {
+        padding: 0.5rem;
+        margin: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 20rem;
+        height: 3rem;
+}
+
+
+
+.list-group-item span{
+    padding-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.list{
+    width: 30rem;
+    margin: auto;
+}
+
+
+
+.deleteButton {
+    margin-top: 0.5rem;
+}
+
+.newTask {
+    margin-left: 14rem;
+}
